@@ -32,7 +32,6 @@ class MyGenBarcode():
             'background': 'white',  #背景色
             'foreground': 'black',  #前景色
             'write_text': self.write_text,  #是否显示文本
-            'text': '',
             'dpi': self.dpi  #分辨率
         }
 
@@ -50,7 +49,6 @@ class MyGenBarcode():
         except:
             my_writer.font_path = os.path.join(os.getcwd(), 'abc.ttf')
         self.ttf_path = my_writer.font_path
-        print('self.ttf_path', self.ttf_path)
         generate_code = barcode.get(name='code128',
                                     code=code_text,
                                     writer=my_writer)
