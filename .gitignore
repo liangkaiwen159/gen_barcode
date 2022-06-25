@@ -1,2 +1,16 @@
 /.idea
 /__pycache__
+build/qtwindows/Analysis-00.toc
+build/qtwindows/base_library.zip
+build/qtwindows/EXE-00.toc
+build/qtwindows/PKG-00.toc
+build/qtwindows/PYZ-00.pyz
+build/qtwindows/PYZ-00.toc
+build/qtwindows/qtwindows.exe.manifest
+build/qtwindows/qtwindows.pkg
+build/qtwindows/Tree-00.toc
+build/qtwindows/Tree-01.toc
+build/qtwindows/Tree-02.toc
+build/qtwindows/warn-qtwindows.txt
+build/qtwindows/xref-qtwindows.html
+dist/qtwindows.exe

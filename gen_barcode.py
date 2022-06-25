@@ -1,5 +1,6 @@
 import barcode
 from barcode.writer import ImageWriter
+import os, sys
 
 
 class MyGenBarcode():
@@ -21,6 +22,7 @@ class MyGenBarcode():
         self.write_text = write_text
         self.dpi = dpi
         self.write_path = write_path  #写入路径
+        self.ttf_path = None
         self.writer_options = {
             'module_width': self.module_width,  #每个黑竖条的宽度
             'module_height': self.module_height,  #条码高度
@@ -41,10 +43,17 @@ class MyGenBarcode():
         #                  output=self.code_text,
         #                  writer_options=self.writer_options,
         #                  text=self.code_text)
-        write_path = self.write_path + write_path_local
+        write_path = os.path.join(self.write_path, write_path_local)
+        my_writer = ImageWriter()
+        try:
+            my_writer.font_path = os.path.join(sys._MEIPASS, 'abc.ttf')
+        except:
+            my_writer.font_path = os.path.join(os.getcwd(), 'abc.ttf')
+        self.ttf_path = my_writer.font_path
+        print('self.ttf_path', self.ttf_path)
         generate_code = barcode.get(name='code128',
                                     code=code_text,
-                                    writer=ImageWriter())
+                                    writer=my_writer)
 
         if isinstance(write_path, str):
             fullname = generate_code.save(write_path, self.writer_options,

@@ -2,6 +2,7 @@ from gen_barcode import MyGenBarcode
 from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox
 from PySide2.QtUiTools import QUiLoader
 from ui_main import Ui_MainWindow
+import os
 
 
 class MyWindows(QMainWindow):
@@ -37,7 +38,10 @@ class MyWindows(QMainWindow):
         dpi = int(self.ui.lineEdit_dpi.text()
                   ) if self.ui.lineEdit_dpi.text() != '' else 300
         # self.write_path = self.ui.lineEdit_write_path.text()  #写入路
-        write_path_global = ''  #写入路
+        # write_path_global = os.path.split(os.path.realpath(__file__))[0]
+        write_path_global = os.getcwd()
+        # write_path_global = ''  #写入路
+        #写入路
         #初始化生成条形码类
         gen_barcode = MyGenBarcode(module_width, module_height, quiet_zone,
                                    font_size, text_distance, write_text, dpi,
@@ -47,6 +51,8 @@ class MyWindows(QMainWindow):
         for i, code_text in enumerate(code_text_split):
             if code_text != '':
                 write_path_local = str(i) + '-' + code_text
+                self.ui.lineEdit_write_path.setText(
+                    os.path.join(write_path_global, write_path_local))
                 gen_barcode.gen_barcode(code_text, write_path_local)
 
 
