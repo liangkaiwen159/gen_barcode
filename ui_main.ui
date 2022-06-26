@@ -29,35 +29,35 @@
        <item>
         <widget class="QLineEdit" name="line_Edit_module_width">
          <property name="placeholderText">
-          <string>二维码宽度，默认0.3</string>
+          <string>条形码宽度，默认0.3</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_module_height">
          <property name="placeholderText">
-          <string>二维码高度，默认15</string>
+          <string>条形码高度，默认10</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_font_size">
          <property name="placeholderText">
-          <string>字体大小，默认10</string>
+          <string>字体大小，默认9</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_quiet_zone">
          <property name="placeholderText">
-          <string>两边空白宽度，默认2</string>
+          <string>两边空白宽度，默认0</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_text_distance">
          <property name="placeholderText">
-          <string>下方文本距离条形码距离，默认5.0</string>
+          <string>下方文本距离条形码距离，默认3.0</string>
          </property>
         </widget>
        </item>
@@ -92,7 +92,7 @@
        <item>
         <widget class="QPlainTextEdit" name="textEdit">
          <property name="placeholderText">
-          <string>请输入要生成的条形码，多个以回车分隔</string>
+          <string>请输入要生成的条形码，多个以回车分隔,每次最多18个</string>
          </property>
         </widget>
        </item>
