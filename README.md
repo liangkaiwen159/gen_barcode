@@ -1,5 +1,6 @@
 # gen_barcode
 ## pip install pyside2
+## pip install pillow
 ## pip install pyinstaller
 ## pip install python-barcode
 ## pip install docx2pdf
