@@ -14,3 +14,4 @@ build/qtwindows/Tree-02.toc
 build/qtwindows/warn-qtwindows.txt
 build/qtwindows/xref-qtwindows.html
 dist/
+.qt_for_python/

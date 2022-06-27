@@ -5,6 +5,7 @@ from docx.shared import Cm, Pt
 from docx.document import Document as Doc
 import os, sys
 import time
+import datetime
 from docx2pdf import convert
 
 
@@ -12,14 +13,11 @@ class gen_docx():
 
     def __init__(self, pic_paths) -> None:
         self.pic_paths = pic_paths
-        self.save_docx_path = os.path.join(
-            os.getcwd(),
-            time.strftime('条形码输出' + "%m月%d日-%H时%M分", time.localtime()) +
-            '.docx')
-        self.save_pdf_path = os.path.join(
-            os.getcwd(),
-            time.strftime('条形码输出' + "%m月%d日-%H时%M分", time.localtime()) +
-            '.pdf')
+        current_time = datetime.datetime.now()
+        current_time = str(current_time).split('.')[0].replace(
+            ':', '时')[5:16].replace(' ', '日').replace('-', '月') + '分-条形码输出'
+        self.save_docx_path = os.path.join(os.getcwd(), current_time + '.docx')
+        self.save_pdf_path = os.path.join(os.getcwd(), current_time + '.pdf')
         self.document = Document()  #创建文档实例
         sections = self.document.sections
         for section in sections:
