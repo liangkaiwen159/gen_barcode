@@ -1,4 +1,3 @@
-from turtle import width
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT, WD_CELL_VERTICAL_ALIGNMENT
 from docx.shared import Cm, Pt
