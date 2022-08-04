@@ -15,3 +15,7 @@ build/qtwindows/warn-qtwindows.txt
 build/qtwindows/xref-qtwindows.html
 dist/
 .qt_for_python/
+build/qtwindows/localpycs/pyimod01_archive.pyc
+build/qtwindows/localpycs/pyimod02_importers.pyc
+build/qtwindows/localpycs/pyimod03_ctypes.pyc
+build/qtwindows/localpycs/struct.pyc
