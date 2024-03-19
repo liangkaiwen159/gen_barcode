@@ -52,7 +52,6 @@ class MyGenBarcode():
         generate_code = barcode.get(name='code128',
                                     code=code_text,
                                     writer=my_writer)
-
         if isinstance(write_path, str):
             fullname = generate_code.save(write_path, self.writer_options,
                                           code_text)

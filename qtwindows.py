@@ -35,7 +35,7 @@ class MyWindows(QMainWindow):
         font_size = int(self.ui.lineEdit_font_size.text()
                         ) if self.ui.lineEdit_font_size.text() != '' else 9
         text_distance = float(self.ui.lineEdit_text_distance.text(
-        )) if self.ui.lineEdit_text_distance.text() != '' else 3.0
+        )) if self.ui.lineEdit_text_distance.text() != '' else 5.0
         write_text = True if self.ui.lineEdit_write_text.text(
         ) == '' else False
         dpi = int(self.ui.lineEdit_dpi.text()
@@ -47,23 +47,21 @@ class MyWindows(QMainWindow):
                                    font_size, text_distance, write_text, dpi,
                                    write_path_global)
         code_text_split = code_text.split('\n')
-        if len(code_text_split) > 18:
-            self.ui.textEdit.setPlainText('单次最多18个，请重新输入')
-            return 0
+        # if len(code_text_split) > 18:
+        #     self.ui.textEdit.setPlainText('单次最多18个，请重新输入')
+        #     return 0
         for i, code_text in enumerate(code_text_split):
             if code_text != '':
                 write_path_local = str(i + 1) + '-' + code_text
                 pic_path = os.path.join(write_path_global, write_path_local)
-                self.ui.lineEdit_write_path.setText(pic_path)
                 pic_path.replace('\\', "\\\\")
-                pic_path = pic_path + '.PNG'
+                pic_path = pic_path + '.png'
                 self.pic_paths.append(pic_path)
                 gen_barcode.gen_barcode(code_text, write_path_local)
                 # print(write_text)
         #生成word
         my_gen_docx = gen_docx(self.pic_paths)
         my_gen_docx.put_pic_in_word()
-
 
 app = QApplication([])
 test = MyWindows()
