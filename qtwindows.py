@@ -50,17 +50,24 @@ class MyWindows(QMainWindow):
         # if len(code_text_split) > 18:
         #     self.ui.textEdit.setPlainText('单次最多18个，请重新输入')
         #     return 0
+        extra_text = []
         for i, code_text in enumerate(code_text_split):
-            if code_text != '':
-                write_path_local = str(i + 1) + '-' + code_text
-                pic_path = os.path.join(write_path_global, write_path_local)
-                pic_path.replace('\\', "\\\\")
-                pic_path = pic_path + '.png'
-                self.pic_paths.append(pic_path)
-                gen_barcode.gen_barcode(code_text, write_path_local)
-                # print(write_text)
+            if code_text == '':
+                continue
+            if 't' not in code_text:
+                extra_text.append('')
+            if 't' in code_text:
+                code_text, tmp_text = code_text.split('t')
+                extra_text.append(tmp_text)
+            write_path_local = str(i + 1) + '-' + code_text
+            pic_path = os.path.join(write_path_global, write_path_local)
+            pic_path.replace('\\', "\\\\")
+            pic_path = pic_path + '.png'
+            self.pic_paths.append(pic_path)
+            gen_barcode.gen_barcode(code_text, write_path_local)
+                
         #生成word
-        my_gen_docx = gen_docx(self.pic_paths)
+        my_gen_docx = gen_docx(self.pic_paths, extra_text)
         my_gen_docx.put_pic_in_word()
 
 app = QApplication([])
